@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PokemonSpawner1 : MonoBehaviour
+public class PokemonSpawner : MonoBehaviour
 {
     public GameObject pokemonPrefab1;
     public GameObject pokemonPrefab2;
@@ -14,6 +14,8 @@ public class PokemonSpawner1 : MonoBehaviour
     public GameObject particlePrefab;
     public GameObject pokeballPrefab;
 
+    //public GameObject arCamera;
+    //public GameObject canvas;
     public Transform target;
 
     private int spawnRadius = 25;
@@ -181,9 +183,12 @@ public class PokemonSpawner1 : MonoBehaviour
         pokemonObject.transform.SetParent(pokemonParent);
 
         // Add the PokemonVisibility script to the Pokemon object
-        PokemonVisibility1 visibilityScript = pokemonObject.AddComponent<PokemonVisibility1>();
+        PokemonVisibility visibilityScript = pokemonObject.AddComponent<PokemonVisibility>();
         visibilityScript.visibleDistance = visibleDistance;
-
+        visibilityScript.particlePrefab = particlePrefab;
+        //visibilityScript.arCamera = arCamera;
+        //visibilityScript.canvas = canvas;
+        visibilityScript.pokeballPrefab = pokeballPrefab;
 
         StartCoroutine(DespawnPokemon(pokemonObject));
     }
