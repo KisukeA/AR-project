@@ -6,8 +6,8 @@ public class PokemonVisibility : MonoBehaviour
 {
     public float visibleDistance; // Distance at which the Pokemon becomes visible
     public GameObject particlePrefab;
-    //public GameObject arCamera;
-    //public GameObject canvas;
+    public GameObject arCamera;
+    public GameObject canvas;
     public GameObject pokeballPrefab;
     public bool check = true;
     public bool first = true;
@@ -73,19 +73,18 @@ public class PokemonVisibility : MonoBehaviour
                     Camera.main.gameObject.SetActive(false);
 
                     // Activate the AR camera and display the new scene or panel
-                    //arCamera.gameObject.SetActive(true);
-                    //panel.SetActive(true)
-                    //canvas.gameObject.SetActive(true);
+                    arCamera.gameObject.SetActive(true);
+                    canvas.gameObject.SetActive(true);
                     gameObject.name = "OnScreenNow";
                     GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>().text = "Catch 'Em All";
                     //if(first){
                         
                     pokeballInstance = Instantiate(pokeballPrefab, Vector3.zero, Quaternion.identity);
                     pokeballInstance.name = "pokeballone";
-                    /*Drag drag = pokeballInstance.AddComponent<Drag>();        //HERHEHREHREHREHEHE
+                    Drag drag = pokeballInstance.AddComponent<Drag>();        //HERHEHREHREHREHEHE
                     drag.pokebal = pokeballInstance;
                     drag.arCamera = arCamera;
-                    drag.fir = true;*/
+                    drag.fir = true;
                     // Set the pokeball's parent to the canvas
                     //pokeballInstance.transform.SetParent(canvas.transform, false);
                     // Position the pokeball at the bottom center of the screen

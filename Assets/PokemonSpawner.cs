@@ -14,8 +14,8 @@ public class PokemonSpawner : MonoBehaviour
     public GameObject particlePrefab;
     public GameObject pokeballPrefab;
 
-    //public GameObject arCamera;
-    //public GameObject canvas;
+    public GameObject arCamera;
+    public GameObject canvas;
     public Transform target;
 
     private int spawnRadius = 25;
@@ -186,8 +186,8 @@ public class PokemonSpawner : MonoBehaviour
         PokemonVisibility visibilityScript = pokemonObject.AddComponent<PokemonVisibility>();
         visibilityScript.visibleDistance = visibleDistance;
         visibilityScript.particlePrefab = particlePrefab;
-        //visibilityScript.arCamera = arCamera;
-        //visibilityScript.canvas = canvas;
+        visibilityScript.arCamera = arCamera;
+        visibilityScript.canvas = canvas;
         visibilityScript.pokeballPrefab = pokeballPrefab;
 
         StartCoroutine(DespawnPokemon(pokemonObject));
