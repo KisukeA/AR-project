@@ -13,6 +13,7 @@ public class PokemonVisibility : MonoBehaviour
     public bool first = true;
 
     private GameObject pokeballInstance;
+    private bool image = true;
     private GameObject target;
     private bool isVisible = false;
     private Collider pokemonCollider;
@@ -74,6 +75,7 @@ public class PokemonVisibility : MonoBehaviour
 
                     // Activate the AR camera and display the new scene or panel
                     arCamera.gameObject.SetActive(true);
+                    //panel.SetActive(true)
                     canvas.gameObject.SetActive(true);
                     gameObject.name = "OnScreenNow";
                     GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>().text = "Catch 'Em All";
@@ -81,7 +83,7 @@ public class PokemonVisibility : MonoBehaviour
                         
                     pokeballInstance = Instantiate(pokeballPrefab, Vector3.zero, Quaternion.identity);
                     pokeballInstance.name = "pokeballone";
-                    Drag drag = pokeballInstance.AddComponent<Drag>();        //HERHEHREHREHREHEHE
+                    Drag drag = pokeballInstance.AddComponent<Drag>();
                     drag.pokebal = pokeballInstance;
                     drag.arCamera = arCamera;
                     drag.fir = true;
