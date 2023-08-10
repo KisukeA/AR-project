@@ -64,14 +64,14 @@ public class Drag : MonoBehaviour {
         {
             // Destroy the pokeball
             //Destroy(gameObject);
-            GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>().text = "Pokemon Caught";
+            GameObject.Find("Canvas").transform.Find("ErrorText").GetComponent<Text>().text = "Pokemon Caught";
             Destroy(GameObject.Find("OnScreenNow"));
         }
     }
 
 IEnumerator Delayed(){
     yield return new WaitForSeconds(0.8f);
-    Vector3 worldPosition = new Vector3(59.85f,706.14f,-37);
+    Vector3 worldPosition = new Vector3(59.85f,705.5f,-37);
     transform.position = worldPosition;
     
 }

@@ -21,7 +21,7 @@ public class PokemonVisibility : MonoBehaviour
     private void Start()
     {
         // Find the target prefab instance by its name
-        target = GameObject.Find("PlayerTarget");
+        target = GameObject.Find("Calem");
         pokemonCollider = GetComponent<Collider>();
         if(pokemonCollider == null){
             Transform childObject = transform.Find("GameObject");
@@ -78,7 +78,7 @@ public class PokemonVisibility : MonoBehaviour
                     //panel.SetActive(true)
                     canvas.gameObject.SetActive(true);
                     gameObject.name = "OnScreenNow";
-                    GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>().text = "Catch 'Em All";
+                    GameObject.Find("Canvas").transform.Find("ErrorText").GetComponent<Text>().text = "Catch 'Em All";
                     //if(first){
                         
                     pokeballInstance = Instantiate(pokeballPrefab, Vector3.zero, Quaternion.identity);
@@ -91,7 +91,7 @@ public class PokemonVisibility : MonoBehaviour
                     //pokeballInstance.transform.SetParent(canvas.transform, false);
                     // Position the pokeball at the bottom center of the screen
                     PositionPokeballAtBottomCenter();
-                    gameObject.transform.position = new Vector3(59.85f, 708, -30);
+                    gameObject.transform.position = new Vector3(59.85f, 707.5f, -30);
                     gameObject.transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f); 
                     check = false;
                     //first = false;
@@ -111,7 +111,7 @@ public class PokemonVisibility : MonoBehaviour
     }
     public void ChangeText(string newText)
     {
-        GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>().text = newText;
+        GameObject.Find("Canvas").transform.Find("ErrorText").GetComponent<Text>().text = newText;
     }
     private bool IsTouchOverPokemon(Vector2 touchPosition)
     {
@@ -138,7 +138,7 @@ public class PokemonVisibility : MonoBehaviour
         // Convert the viewport position to world position
         //Vector3 worldPosition = arCamera.GetComponent<Camera>().ViewportToWorldPoint(pokeballPosition);
         //worldPosition.y = 0f; // Set the pokeball at ground level
-        Vector3 worldPosition = new Vector3(59.85f,706.14f,-37);
+        Vector3 worldPosition = new Vector3(59.85f,705.5f,-37);
         // Set the position of the pokeball
         pokeballInstance.transform.position = worldPosition;
         //pokeballInstance.transform.SetParent(arCamera.transform);
