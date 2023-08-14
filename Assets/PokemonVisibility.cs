@@ -78,7 +78,7 @@ public class PokemonVisibility : MonoBehaviour
                     //panel.SetActive(true)
                     canvas.gameObject.SetActive(true);
                     gameObject.name = "OnScreenNow";
-                    GameObject.Find("Canvas").transform.Find("ErrorText").GetComponent<Text>().text = "Catch 'Em All";
+                    canvas.transform.Find("PokeText").GetComponent<TextMeshProUGUI>().text = "Catch 'Em All";
                     //if(first){
                         
                     pokeballInstance = Instantiate(pokeballPrefab, Vector3.zero, Quaternion.identity);

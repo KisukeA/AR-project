@@ -31,8 +31,7 @@ public class Drag : MonoBehaviour {
     }
 
     public void OnMouseUp()
-    {
-        
+    { 
         StartCoroutine(DelayedFunctionCoroutine(gameObject));
         this.GetComponent<Rigidbody>().useGravity = true;
         this.GetComponent<Rigidbody>().velocity += this.transform.forward * ThrowSpeed;
@@ -64,20 +63,27 @@ public class Drag : MonoBehaviour {
         {
             // Destroy the pokeball
             //Destroy(gameObject);
-            GameObject.Find("Canvas").transform.Find("ErrorText").GetComponent<Text>().text = "Pokemon Caught";
+            GameObject.Find("Canvas").transform.Find("PokeText").GetComponent<TextMeshProUGUI>().text = "Pokemon Caught";
             Destroy(GameObject.Find("OnScreenNow"));
+            StartCoroutine(DExit());
         }
     }
-
+IEnumerator DExit(){
+    yield return new WaitForSeconds(1.5f);
+    Destroy(GameObject.Find("pokeballone")); 
+    GameObject.Find("Canvas").gameObject.SetActive(false);
+    arCamera.gameObject.SetActive(false);
+    GameObject.Find("World").transform.Find("Calem").transform.Find("Main Camera").gameObject.SetActive(true);
+}
 IEnumerator Delayed(){
-    yield return new WaitForSeconds(0.8f);
+    yield return new WaitForSeconds(0.1f);
     Vector3 worldPosition = new Vector3(59.85f,705.5f,-37);
     transform.position = worldPosition;
     
 }
 IEnumerator DelayedFunctionCoroutine(GameObject pokeballObject)
 {
-    yield return new WaitForSeconds(1); // Wait for 3 seconds
+    yield return new WaitForSeconds(4); // Wait for 3 seconds
 
     
     // Set the position of the pokeball
