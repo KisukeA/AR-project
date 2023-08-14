@@ -8,9 +8,6 @@ public class SwitchCamera : MonoBehaviour
 
     private void Start()
     {
-        // Ensure that the AR camera is initially enabled and the main camera is disabled
-        //arCamera.enabled = true;
-        //mainCamera.enabled = false;
     }
 
     public void OnButtonClick()
